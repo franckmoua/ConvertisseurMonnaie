@@ -2,38 +2,47 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>Blank</ion-title>
+        <ion-title>Currency Convert</ion-title>
       </ion-toolbar>
     </ion-header>
     
-    <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">Blank</ion-title>
-        </ion-toolbar>
-      </ion-header>
-    
+    <ion-content :fullscreen="true"> 
       <div id="container">
-        <strong>Ready to create an app?</strong>
-        <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+        <Search @amount="getValue"></Search>
+        <Results v-if="country" :country="country"></Results>
       </div>
     </ion-content>
   </ion-page>
 </template>
 
-<script lang="ts">
+<script>
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 import { defineComponent } from 'vue';
+import Search from '@/components/Search.vue';
+import Results from '@/components/Results.vue';
 
 export default defineComponent({
+  data(){
+    return {
+      country: null,
+    }
+  },
   name: 'Home',
   components: {
     IonContent,
     IonHeader,
     IonPage,
     IonTitle,
-    IonToolbar
-  }
+    IonToolbar,
+    Search,
+    Results
+  },
+  
+  methods:{
+     getValue(data){
+      this.country = data
+    }
+  },
 });
 </script>
 
