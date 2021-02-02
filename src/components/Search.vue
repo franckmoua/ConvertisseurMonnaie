@@ -7,12 +7,12 @@
         
         <ion-item>
         <ion-label>Convert to</ion-label>
-            <ion-select v-model="devise.symbol" >
-                <ion-select-option v-for="(countries, name) in countries" :key="countries" :value="name">{{countries}}</ion-select-option>
+            <ion-select v-model="devise.symbol">
+                <ion-select-option v-for="(countries,name) in countries" :key="countries" :value="name">{{ countries }}</ion-select-option>
             </ion-select>
         </ion-item>
         <section>
-          <ion-button expand="block" color="success" @click.prevent="getValue">Convert</ion-button>
+          <ion-button expand="block" color="primary" @click.prevent="getValue">Convert</ion-button>
         </section>
       </ion-card> 
     
@@ -24,7 +24,6 @@
 <script>
 import { IonInput, IonButton, IonToolbar, IonLabel, IonSelect, IonSelectOption, IonItem, IonCard } from '@ionic/vue';
 import axios from 'axios';
-
 export default ({
   name: 'Search',
   data(){
@@ -52,12 +51,14 @@ export default ({
         console.log(error);
       });
     },
-    mounted(){
-    this.countryList();
-  },
     getValue(){
       this.$emit('amount', this.devise);
-    },
+    }
+    
+  },
+    mounted(){
+    this.countryList();
+
   },
   
   components: {

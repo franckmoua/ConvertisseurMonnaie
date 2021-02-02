@@ -22,11 +22,7 @@ import Search from '@/components/Search.vue';
 import Results from '@/components/Results.vue';
 
 export default defineComponent({
-  data(){
-    return {
-      country: null,
-    }
-  },
+ 
   name: 'Home',
   components: {
     IonContent,
@@ -37,7 +33,11 @@ export default defineComponent({
     Search,
     Results
   },
-  
+   data(){
+    return {
+      country: null,
+    }
+  },
   methods:{
      getValue(data){
       this.country = data

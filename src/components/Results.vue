@@ -35,7 +35,7 @@ export default({
         //this.result calculates the selected country rate with the amount we wish to convert
         this.rate = response.data.rates[this.country.symbol]
         this.result = Math.round((this.rate * this.country.amount) * 100) / 100
-        //console.log(rate)
+        console.log(this.rate);
         //console.log(this.result)
       })
       .catch((error) => {
